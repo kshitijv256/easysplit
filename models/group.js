@@ -12,6 +12,35 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "groupId",
       });
     }
+
+    static async createGroup({ name, members }) {
+      return await this.create({
+        name: name,
+        members: members,
+      });
+    }
+
+    static async getGroups() {
+      return await this.findAll();
+    }
+
+    static async getGroup(id) {
+      return await this.findByPk(id);
+    }
+
+    static async updateGroup({ id, name, members }) {
+      return await this.update(
+        {
+          name: name,
+          members: members,
+        },
+        {
+          where: {
+            id: id,
+          },
+        }
+      );
+    }
   }
   Group.init(
     {

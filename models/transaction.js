@@ -34,8 +34,8 @@ module.exports = (sequelize, DataTypes) => {
 
     static async addTransaction({ amount, description, forIds, byId }) {
       return await this.create({
-        amount,
-        description,
+        amount: amount,
+        description: description,
         for: forIds,
         by: byId,
       });

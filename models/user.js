@@ -7,6 +7,15 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
+    static async getUsers(groupId) {
+      const intgroupId = parseInt(groupId);
+      return await User.findAll({
+        where: {
+          groupId: intgroupId,
+        },
+      });
+    }
+
     static associate(models) {
       User.hasMany(models.Transaction, {
         foreignKey: "by",
