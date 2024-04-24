@@ -277,7 +277,7 @@ app.put("/transactions/:id/", async function (request, response) {
 app.delete("/transactions/:id", async function (request, response) {
   console.log("Deleting a Todo with ID: ", request.params.id);
   try {
-    await Transaction.remove(request.params.id, request.body.userId);
+    await Transaction.remove(request.params.id);
     const todos = await Transaction.findByPk(request.params.id);
     if (todos) {
       return response.json({ success: false });

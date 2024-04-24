@@ -41,11 +41,10 @@ module.exports = (sequelize, DataTypes) => {
       });
     }
 
-    static async remove(id, userId) {
+    static async remove(id) {
       return await this.destroy({
         where: {
           id: id,
-          by: userId,
         },
       });
     }

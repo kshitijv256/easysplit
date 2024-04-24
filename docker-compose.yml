@@ -4,7 +4,7 @@ services:
     build:
       context: .
       target: dev
-    image: todo-app:development
+    image: easysplit-app:development
     volumes:
       - .:/app
     ports:
@@ -15,7 +15,7 @@ services:
       POSTGRES_USER: $DEV_USER
       POSTGRES_DB: $DEV_DB
       POSTGRES_PASSWORD: $DEV_PASSWORD
-      POSTGRES_HOST: $DEV_HOST
+      POSTGRES_HOST: db
     depends_on:
       - db
 
@@ -29,7 +29,7 @@ services:
       POSTGRES_USER: $DEV_USER
       POSTGRES_DB: $DEV_DB
       POSTGRES_PASSWORD: $DEV_PASSWORD
-      POSTGRES_HOST: $DEV_HOST
+      POSTGRES_HOST: db
 
 volumes:
   pg-dev-data:
