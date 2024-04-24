@@ -36,6 +36,7 @@ app.use(
     cookie: { maxAge: 24 * 60 * 60 * 1000 }, // 24 hours
   })
 );
+// simple comment
 
 // passport config
 app.use(passport.initialize());
